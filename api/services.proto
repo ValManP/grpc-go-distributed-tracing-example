@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "/api";
+option java_package = "com.netcracker.examples.handshake";
+
+package api;
+
+service Circle {
+    rpc Area(AreaRequest) returns (AreaResponse) {}
+}
+
+service Math {
+    rpc Sqr(SqrRequest) returns (SqrResponse) {}
+}
+
+message AreaRequest {
+  double radius = 1;
+}
+
+message AreaResponse {
+  double area = 1;
+}
+
+message SqrRequest {
+  double value = 1;
+}
+
+message SqrResponse {
+  double result = 1;
+}
