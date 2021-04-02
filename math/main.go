@@ -23,6 +23,7 @@ type server struct {
 func (s *server) Sqr(ctx context.Context, req *api.SqrRequest) (*api.SqrResponse, error) {
 	fmt.Printf("calls Math.Sqr with value = %f\n", req.Value)
 	ctx, span := trace.StartSpan(ctx, "Math.Sqr")
+	span.AddAttributes(trace.StringAttribute("lang", "golang"))
 	span.AddAttributes(trace.Float64Attribute("value", req.Value))
 	defer span.End()
 	return &api.SqrResponse{Result: req.Value * req.Value}, nil

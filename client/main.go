@@ -51,6 +51,7 @@ func main() {
 
 		fmt.Println("Call Circle.Area...")
 		ctx, span := trace.StartSpan(context.Background(), "ClientSpan")
+		span.AddAttributes(trace.StringAttribute("lang", "golang"))
 		resp, err := c.Area(ctx, &api.AreaRequest{Radius: radius})
 		if err != nil {
 			span.SetStatus(trace.Status{Code: trace.StatusCodeInternal, Message: err.Error()})

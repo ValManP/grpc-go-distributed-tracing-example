@@ -27,6 +27,7 @@ func (s *server) Area(ctx context.Context, req *api.AreaRequest) (*api.AreaRespo
 
 	ctx, span := trace.StartSpan(ctx, "Area.Circle")
 	span.AddAttributes(trace.Float64Attribute("radius", req.Radius))
+	span.AddAttributes(trace.StringAttribute("lang", "golang"))
 	defer span.End()
 
 	sqrRadius, err := sqr(ctx, req.GetRadius())
