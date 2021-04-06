@@ -28,3 +28,6 @@ docker run -d --name jaeger \
 
 2) Run main func of each part
 3) See your traces in http://localhost:16686/
+
+## Example
+![example](https://user-images.githubusercontent.com/12141268/113720557-74775c00-96f7-11eb-9011-af52bb381dcc.png)
